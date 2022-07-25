@@ -1,5 +1,4 @@
 
-
 import random
 global human_score
 global computer_score
@@ -28,6 +27,7 @@ def human_move(human_score,computer_score) :
 
 def computer_move(human_score,computer_score):
     
+    
     while computer_score !=30:
         roll = random.randint(1,6)
 
@@ -43,9 +43,27 @@ def computer_move(human_score,computer_score):
 
     return human_score,computer_score
 
-human_move(human_score,computer_score)
-computer_move(human_score,computer_score)
+#human_move(human_score,computer_score)
+#computer_move(human_score,computer_score)
+
 def is_game_over(computer_score, human_score):
     if computer_score or human_score ==50:
         print('Game is over: ')
+
+
+def ask_yes_or_no(prompt):
+    while True:
+        prompt = input('Do You want to play the Game (Y/N):  ')
+        if prompt.startswith('Y') or prompt.startswith('y'):
+            human_move(human_score,computer_score)
+            is_game_over(computer_score, human_score)
+            break
+        elif prompt.startswith('N') or prompt.startswith('n'):
+            print('You have chosen not to play the game')
+            print(f'Current score is: Your score is: {human_score}/n computer score is {computer_score}')
+    return prompt
+
+ask_yes_or_no()
+
+
 #print(human_score)
